@@ -53,6 +53,3 @@ captures/
 config.gradle
 
 deploy.gradle
-
-#jcenterDeploy.gradle
-#jcenterInstall.gradle
