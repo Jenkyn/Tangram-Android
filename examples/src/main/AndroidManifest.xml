@@ -22,21 +22,23 @@
   ~ SOFTWARE.
   -->
 
-<manifest package="com.tmall.wireless.tangram.example"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tmall.wireless.tangram.example">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:name="com.tmall.wireless.tangram.example.TangramApplication"
+        android:name="com.tmall.wireless.tangram.example.TangramApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        tools:replace="android:allowBackup"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
 
-        <activity android:name="com.tmall.wireless.tangram.example.DemoListActivity">
+        <activity
+            android:name="com.tmall.wireless.tangram.example.DemoListActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,14 +46,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.tmall.wireless.tangram.example.TangramActivity">
-        </activity>
-        <activity android:name="com.tmall.wireless.tangram.example.tangram3.Tangram3Activity">
-        </activity>
-        <activity android:name="com.tmall.wireless.tangram.example.RxTangramActivity">
-        </activity>
-        <activity android:name="com.tmall.wireless.tangram.example.TangramDataParserActivity">
-        </activity>
+        <activity
+            android:name="com.tmall.wireless.tangram.example.TangramActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.tmall.wireless.tangram.example.tangram3.Tangram3Activity"
+            android:exported="false" />
+        <activity
+            android:name="com.tmall.wireless.tangram.example.RxTangramActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.tmall.wireless.tangram.example.TangramDataParserActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -24,26 +24,15 @@
 
 package com.tmall.wireless.tangram3.structure.card;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.FixLayoutHelper;
 import com.tmall.wireless.tangram3.dataparser.concrete.Card;
 import com.tmall.wireless.tangram3.dataparser.concrete.Style;
-import com.tmall.wireless.tangram3.util.Utils;
 
-import org.json.JSONObject;
-
-import java.util.Collections;
-import java.util.Map;
-
-import static com.alibaba.android.vlayout.layout.FixLayoutHelper.BOTTOM_LEFT;
-import static com.alibaba.android.vlayout.layout.FixLayoutHelper.BOTTOM_RIGHT;
 import static com.alibaba.android.vlayout.layout.FixLayoutHelper.TOP_LEFT;
-import static com.alibaba.android.vlayout.layout.FixLayoutHelper.TOP_RIGHT;
 import static com.alibaba.android.vlayout.layout.ScrollFixLayoutHelper.SHOW_ALWAYS;
-import static com.alibaba.android.vlayout.layout.ScrollFixLayoutHelper.SHOW_ON_ENTER;
-import static com.alibaba.android.vlayout.layout.ScrollFixLayoutHelper.SHOW_ON_LEAVE;
 
 /**
  * Created by villadora on 15/8/24.

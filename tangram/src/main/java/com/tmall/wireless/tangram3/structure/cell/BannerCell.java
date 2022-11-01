@@ -24,7 +24,7 @@
 
 package com.tmall.wireless.tangram3.structure.cell;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseIntArray;
 import android.view.ViewGroup;
 
@@ -37,7 +37,6 @@ import com.tmall.wireless.tangram3.core.adapter.GroupBasicAdapter;
 import com.tmall.wireless.tangram3.structure.BaseCell;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**

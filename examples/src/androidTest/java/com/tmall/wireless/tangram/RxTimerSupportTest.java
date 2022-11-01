@@ -28,12 +28,12 @@ import java.util.Map;
 
 import android.content.Context;
 import android.os.Looper;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.annotation.UiThreadTest;
-import android.support.test.filters.SmallTest;
-import android.support.test.rule.UiThreadTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.util.ArrayMap;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.annotation.UiThreadTest;
+import androidx.test.filters.SmallTest;
+import androidx.test.rule.UiThreadTestRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.collection.ArrayMap;
 import android.test.AndroidTestCase;
 import android.util.Log;
 import android.view.View;

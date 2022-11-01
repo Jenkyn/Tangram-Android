@@ -24,15 +24,11 @@
 
 package com.tmall.wireless.tangram.example.data;
 
-import android.support.annotation.NonNull;
-import android.view.View;
+import androidx.annotation.NonNull;
+
 import android.widget.TextView;
 
 import com.tmall.wireless.tangram.structure.BaseCell;
-import com.tmall.wireless.tangram.structure.CellRender;
-import com.tmall.wireless.tangram.structure.viewcreator.ViewHolderCreator;
-
-import org.json.JSONObject;
 
 /**
  * Created by mikeafc on 16/5/26.

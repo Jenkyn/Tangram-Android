@@ -24,7 +24,7 @@
 
 package com.tmall.wireless.tangram3.util;
 
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;

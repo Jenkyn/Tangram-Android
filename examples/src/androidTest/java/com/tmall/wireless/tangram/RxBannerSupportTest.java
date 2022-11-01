@@ -27,11 +27,11 @@ package com.tmall.wireless.tangram;
 import java.util.Map;
 
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.rule.UiThreadTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.util.ArrayMap;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.UiThreadTestRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.collection.ArrayMap;
 import android.test.AndroidTestCase;
 import com.tmall.wireless.tangram.core.service.ServiceManager;
 import com.tmall.wireless.tangram.support.BannerSupport;

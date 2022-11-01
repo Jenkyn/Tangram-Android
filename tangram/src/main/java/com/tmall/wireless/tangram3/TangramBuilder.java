@@ -25,10 +25,12 @@
 package com.tmall.wireless.tangram3;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.extend.PerformanceMonitor;
 import com.tmall.wireless.tangram3.core.protocol.ElementRenderService;
@@ -42,7 +44,6 @@ import com.tmall.wireless.tangram3.dataparser.concrete.PojoAdapterBuilder;
 import com.tmall.wireless.tangram3.dataparser.concrete.PojoDataParser;
 import com.tmall.wireless.tangram3.dataparser.concrete.PojoGroupBasicAdapter;
 import com.tmall.wireless.tangram3.eventbus.BusSupport;
-import com.tmall.wireless.tangram3.structure.BaseCell;
 import com.tmall.wireless.tangram3.structure.card.BannerCard;
 import com.tmall.wireless.tangram3.structure.card.ColumnCard;
 import com.tmall.wireless.tangram3.structure.card.DoubleColumnCard;
@@ -65,7 +66,6 @@ import com.tmall.wireless.tangram3.structure.card.StickyCard;
 import com.tmall.wireless.tangram3.structure.card.StickyEndCard;
 import com.tmall.wireless.tangram3.structure.card.TripleColumnCard;
 import com.tmall.wireless.tangram3.structure.view.SimpleEmptyView;
-import com.tmall.wireless.tangram3.structure.viewcreator.ViewHolderCreator;
 import com.tmall.wireless.tangram3.support.TimerSupport;
 import com.tmall.wireless.tangram3.util.IInnerImageSetter;
 import com.tmall.wireless.tangram3.util.ImageUtils;
@@ -468,7 +468,7 @@ public class TangramBuilder {
         }
 
         /**
-         * @return a {@link TangramBuilder} instance to bind {@link android.support.v7.widget.RecyclerView}, data.
+         * @return a {@link TangramBuilder} instance to bind {@link RecyclerView}, data.
          */
         public TangramEngine build() {
 

@@ -33,7 +33,7 @@ import com.tmall.wireless.tangram.core.adapter.BinderViewHolder;
 import com.tmall.wireless.tangram.core.adapter.GroupBasicAdapter;
 import com.tmall.wireless.tangram.structure.BaseCell;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
 import org.json.JSONObject;
 

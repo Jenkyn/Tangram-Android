@@ -25,17 +25,16 @@
 package com.tmall.wireless.tangram;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import android.content.Context;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.annotation.UiThreadTest;
-import android.support.test.filters.SmallTest;
-import android.support.test.rule.UiThreadTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.util.ArrayMap;
+import androidx.annotation.NonNull;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.annotation.UiThreadTest;
+import androidx.test.filters.SmallTest;
+import androidx.test.rule.UiThreadTestRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.collection.ArrayMap;
 import android.test.AndroidTestCase;
 import android.util.Log;
 import android.view.View;
@@ -44,13 +43,10 @@ import com.tmall.wireless.tangram.dataparser.concrete.Card;
 import com.tmall.wireless.tangram.op.ClickExposureCellOp;
 import com.tmall.wireless.tangram.structure.BaseCell;
 import com.tmall.wireless.tangram.support.ExposureSupport;
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.ObservableTransformer;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
-import io.reactivex.internal.operators.maybe.MaybeCallbackObserver;
-import io.reactivex.schedulers.Schedulers;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
