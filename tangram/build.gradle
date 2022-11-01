@@ -1,162 +1,53 @@
-/*
- * MIT License
- *
- * Copyright (c) 2018 Alibaba Group
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-apply plugin: 'com.android.library'
-
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-        maven { url "http://oss.jfrog.org/oss-snapshot-local/" }
-        mavenCentral()
-        jcenter()
-        maven { url 'https://maven.google.com' }
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
-    }
+plugins {
+    id 'com.android.library'
 }
-
-repositories {
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    maven { url "http://oss.jfrog.org/oss-snapshot-local/" }
-    jcenter()
-    mavenLocal()
-    maven { url 'https://maven.google.com' }
-    google()
-    mavenCentral()
-}
-
-ext {
-    bintrayRepo = 'Tangram'
-    bintrayName = 'Tangram-Android'
-
-    publishedGroupId = project.hasProperty('GROUP') ? GROUP : ''
-    libraryName = project.hasProperty('ARTIFACT') ? ARTIFACT : ''
-    artifact = project.hasProperty('ARTIFACT') ? ARTIFACT : ''
-
-    libraryDescription = 'Tangram is a modular UI solution for building native page dynamically including Tangram for Android, Tangram for iOS and even backend CMS. This project provides the sdk on Android.'
-
-    siteUrl = 'https://github.com/alibaba/Tangram-Android'
-    gitUrl = 'https://github.com/alibaba/Tangram-Android.git'
-
-    libraryVersion = project.hasProperty('VERSION_NAME') ? VERSION_NAME : ''
-
-    developerId = 'longerian'
-    developerName = 'longerian'
-    developerEmail = 'xlhongultimate@gmail.com'
-
-    licenseName = 'MIT'
-    licenseUrl = 'https://opensource.org/licenses/MIT'
-    allLicenses = ["MIT"]
-}
-
-def VERSION = System.properties['version'] ?: '10'
-def VERSION_NAME = System.properties['versionName'] ?: '0.1.0'
 
 android {
-    compileSdkVersion Integer.parseInt(System.properties['compileSdkVersion'] ?: '26')
-    buildToolsVersion System.properties['buildToolsVersion'] ?: '26.0.2'
+    compileSdk 28
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion Integer.parseInt(System.properties['targetSdkVersion'] ?: '26')
-        versionCode Integer.parseInt(VERSION)
-        versionName VERSION_NAME
+        minSdk 14
+        targetSdk 28
+        versionCode 10
+        versionName '0.1.0'
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
-    }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    lintOptions {
-        abortOnError false
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-
 }
-
-configurations.all {
-    // check for updates every build
-    resolutionStrategy.cacheChangingModulesFor 60, 'seconds'
-}
-
 
 dependencies {
-    if (project.hasProperty('vlayoutDevMode')) {
-        println 'compile with vlayout source code'
-        implementation(project(':vlayout')) {
-            exclude group: 'com.android.support', module: 'recyclerview-v7'
-            exclude group: 'com.android.support', module: 'support-v4'
-            exclude group: 'com.android.support', module: 'support-annotations'
-        }
-    } else {
-        api('com.alibaba.android:vlayout:1.2.40@aar') {
-            changing = true
-        }
-    }
-
     compileOnly 'io.reactivex.rxjava2:rxjava:2.1.12'
     compileOnly 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'com.android.support:recyclerview-v7:26.0.2'
-    implementation 'com.android.support:support-v4:26.0.2'
-    implementation 'com.android.support:support-annotations:26.0.2'
-    implementation 'com.alibaba:fastjson:1.1.54.android@jar'
-    if (project.hasProperty('ultraViewPagerDevMode')) {
-        println 'compile with ultraViewPager source code'
-        implementation project(':ultraviewpager')
-    } else {
-        api 'com.alibaba.android:ultraviewpager:1.0.7.8@aar'
-    }
-    if (project.hasProperty('virtualViewDevMode')) {
-        println 'compile with virtualview source code'
-        implementation(project(':virtualview')) {
 
-            exclude group: 'com.android.support', module: 'appcompat'
-            exclude group: 'com.android.support', module: 'appcompat-v7'
-            exclude group: 'com.android.support', module: 'support-v7-recyclerview'
-            exclude group: 'com.android.support', module: 'support-v4'
-            exclude group: 'com.android.support', module: 'support-annotations'
-        }
-    } else {
-        api('com.alibaba.android:virtualview:1.4.3@aar') {
-            transitive true
-            exclude group: 'com.android.support', module: 'appcompat'
-            exclude group: 'com.android.support', module: 'appcompat-v7'
-            exclude group: 'com.android.support', module: 'support-v7-recyclerview'
-            exclude group: 'com.android.support', module: 'support-v4'
-            exclude group: 'com.android.support', module: 'support-annotations'
-            exclude group: 'com.android.support', module: 'support-compat'
-        }
-    }
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.alibaba:fastjson:1.1.54.android@jar'
+
+    api project(':vlayout')
+//    api('com.alibaba.android:vlayout:1.2.40@aar') {
+//        changing = true
+//    }
+
+    api project(':ultraviewpager')
+    //api 'com.alibaba.android:ultraviewpager:1.0.7.8@aar'
+
+    api project(':virtualview')
+//    api('com.alibaba.android:virtualview:1.4.3@aar') {
+//        transitive true
+//        exclude group: 'com.android.support', module: 'appcompat'
+//        exclude group: 'com.android.support', module: 'appcompat-v7'
+//        exclude group: 'com.android.support', module: 'support-v7-recyclerview'
+//        exclude group: 'com.android.support', module: 'support-v4'
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//        exclude group: 'com.android.support', module: 'support-compat'
+//    }
 }
