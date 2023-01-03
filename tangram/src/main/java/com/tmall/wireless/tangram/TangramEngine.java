@@ -61,6 +61,7 @@ import com.tmall.wireless.tangram.op.ReplaceGroupContentOp;
 import com.tmall.wireless.tangram.op.ReplaceGroupOp;
 import com.tmall.wireless.tangram.op.UpdateCellOp;
 import com.tmall.wireless.tangram.structure.BaseCell;
+import com.tmall.wireless.tangram.support.BannerSupport;
 import com.tmall.wireless.tangram.support.ExposureSupport;
 import com.tmall.wireless.tangram.support.SimpleClickSupport;
 import com.tmall.wireless.tangram.support.async.CardLoadSupport;
@@ -304,6 +305,10 @@ public class TangramEngine extends BaseTangramEngine<JSONObject, JSONArray, Card
         }
     }
 
+
+    public void addBannerSupport(@NonNull final BannerSupport support) {
+        register(BannerSupport.class, support);
+    }
 
     public void addSimpleClickSupport(@NonNull final SimpleClickSupport support) {
         register(SimpleClickSupport.class, support);

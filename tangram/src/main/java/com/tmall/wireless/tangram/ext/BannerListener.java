@@ -24,6 +24,7 @@
 
 package com.tmall.wireless.tangram.ext;
 
+import com.tmall.wireless.tangram.structure.BaseCell;
 /**
  * Created by mikeafc on 17/4/10.
  */
@@ -36,4 +37,6 @@ public interface BannerListener {
     void onPageScrollStateChanged(int state);
 
     void onItemPositionInBanner(int position);
+
+    void onExpose(int position, BaseCell cell);
 }

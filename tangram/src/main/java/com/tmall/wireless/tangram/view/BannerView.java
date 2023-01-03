@@ -111,6 +111,8 @@ public class BannerView extends ViewGroup implements ViewPager.OnPageChangeListe
 
     private IntentFilter filter = new IntentFilter();
 
+    private BaseCell previewExposedCell = null;
+
     public BannerView(Context context) {
         this(context, null);
     }
@@ -209,6 +211,26 @@ public class BannerView extends ViewGroup implements ViewPager.OnPageChangeListe
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        final int index = mUltraViewPager.getCurrentItem();
+        BaseCell exposed = getCurrentCell(index);
+        if (exposed != null && exposed != previewExposedCell) {
+            previewExposedCell = exposed;
+            if (bannerSupport != null) {
+                for (int i = 0; i < bannerSupport.getListeners().size(); i++) {
+                    BannerListener listener = bannerSupport.getListeners().get(i);
+                    listener.onExpose(index, exposed);
+                }
+
+                List<BannerListener> listeners = bannerSupport.getSelectedListenerById(cell.id);
+                if (listeners != null) {
+                    for (int i = 0; i < listeners.size(); i ++) {
+                        BannerListener listener = listeners.get(i);
+                        listener.onExpose(index, exposed);
+                    }
+                }
+            }
+        }
+
         if (bannerSupport != null) {
             for (int j = 0; j < bannerSupport.getListeners().size(); j++) {
                 BannerListener listener = bannerSupport.getListeners().get(j);
@@ -224,6 +246,16 @@ public class BannerView extends ViewGroup implements ViewPager.OnPageChangeListe
                 }
             }
         }
+    }
+
+    private BaseCell getCurrentCell(int index) {
+        if (cell instanceof BannerCell) {
+            BannerCell bc = (BannerCell) cell;
+            if (index >= 0 && index < bc.mCells.size()) {
+                return bc.mCells.get(index);
+            }
+        }
+        return null;
     }
 
     @Override

@@ -25,6 +25,8 @@
 package com.tmall.wireless.tangram.support;
 
 import com.tmall.wireless.tangram.ext.BannerListener;
+import com.tmall.wireless.tangram.structure.BaseCell;
+
 import io.reactivex.Observer;
 import io.reactivex.android.MainThreadDisposable;
 
@@ -48,6 +50,11 @@ public abstract class RxBannerListener<T> extends MainThreadDisposable implement
     }
 
     public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onExpose(int position, BaseCell cell) {
 
     }
 
